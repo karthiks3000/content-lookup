@@ -14,14 +14,15 @@ import {TableModule} from 'primeng/table';
 
 import { AppComponent } from './app.component';
 import { LocComponent } from './loc/loc.component';
+import { EidrComponent } from './eidr/eidr.component';
 
 import {HttpModule} from '@angular/http';
-import { EidrComponent } from './eidr/eidr.component';
 
 import { LocService } from './loc/loc.service';
 import { EidrService } from './eidr/eidr.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { GlobalService } from './global.service';
+import { UnderScoreDirective } from './directives/under-score.directive';
 
 
 
@@ -29,7 +30,8 @@ import { GlobalService } from './global.service';
   declarations: [
     AppComponent,
     LocComponent,
-    EidrComponent    
+    EidrComponent,
+    UnderScoreDirective,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { GlobalService } from './global.service';
     TableModule,
     AppRoutingModule
   ],
-  providers: [GlobalService,LocService,EidrService],
+  providers: [GlobalService, LocService, EidrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

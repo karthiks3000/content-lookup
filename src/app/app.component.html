@@ -1,28 +1,24 @@
 <div class="ui-g">
     <div class="ui-g-12 ui-md-3" *ngIf="showSideNav">
       <p-panel header="Repositories">
-          <!-- <a routerLink="/loc"><i class="fa fa-book"></i> Library of Congress</a>
-          <br>
-          <br>          
-          <a routerLink="/eidr"><i class="fa fa-edit"></i> Entertainment Identifier Registry</a> -->
           <ul class="nav nav-pills nav-stacked">
               <li role="presentation"><a routerLink="/loc"><i class="fa fa-book"></i> Library of Congress</a></li>
               <li role="presentation"><a routerLink="/eidr"><i class="fa fa-edit"></i> Entertainment Identifier Registry</a></li>
           </ul>
       </p-panel>
-      
+
     </div>
-    <div class="ui-g-12 ui-g-nopad" [ngClass]="{'ui-md-9':showSideNav,'ui-md-12':!showSideNav}">       
+    <div class="ui-g-12 ui-g-nopad" [ngClass]="{'ui-md-9':showSideNav,'ui-md-12':!showSideNav}">
         <p-panel  >
             <p-header>
-              <button pButton icon="fa-bars" (click)="showSideNav = !showSideNav"></button>   
-              <label>Search Repository: {{globalService.selectedPage}}</label>            
-              <div class="ui-inputgroup" style="float:right">
-                <input type="text" #searchBox  pInputText (keyup)="globalService.searchTerm$.next(searchBox.value)" placeholder="Search" />                  
-                <span class="ui-inputgroup-addon"><i class="fa fa-search"></i></span>                         
+              <button pButton icon="fa-bars" (click)="showSideNav = !showSideNav;"></button>
+              <label appUnderScore>Search Repository: {{globalService.selectedPage}}</label>
+              <div [@flyInOut] class="ui-inputgroup" style="float:right">
+                <input  type="text" #searchBox  pInputText (keyup)="globalService.searchTerm$.next(searchBox.value)" placeholder="Search" />
+                <span class="ui-inputgroup-addon"><i class="fa fa-search"></i></span>
               </div>
             </p-header>
-            <router-outlet ></router-outlet>           
-        </p-panel>        
-    </div>    
+            <router-outlet class="ui-router"></router-outlet>
+        </p-panel>
+    </div>
 </div>
